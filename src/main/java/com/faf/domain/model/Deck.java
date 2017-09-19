@@ -2,6 +2,8 @@ package com.faf.domain.model;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.stream.Collectors;
 
 /**
  * Created by schiduvasile on 9/19/17.
@@ -18,6 +20,11 @@ public class Deck {
             }
         }
     }
+
+    public void shuffleDeck(ArrayList deck) {
+        Collections.shuffle(deck);
+    }
+
 
     public ArrayList<Card> getDeck() {
         return deck;
