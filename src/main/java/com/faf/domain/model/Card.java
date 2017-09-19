@@ -2,42 +2,34 @@ package com.faf.domain.model;
 
 /**
  * Created by schiduvasile on 9/13/17.
+ * Implementation of the card class
  */
 public class Card {
 
-    public static final char[] suits = {'C', 'D', 'S', 'H'};
-    public static final char[] values = {'A', '2', '3', '4', '5', '6', '7', '8', '9', 'X', 'J', 'Q', 'K'};
 
-    private boolean isAce = false;
-    private char value;
-    private char suit;
-    private int points;
+    private Suit suit;
+    private Value value;
 
-    public Card(char value, char suit) {
+    public Card(Value value, Suit suit) {
         this.suit = suit;
         this.value = value;
 
-        switch (value) {
-            case 'A':
-                points = 11;
-                break;
-            case 'X':
-            case 'J':
-            case 'Q':
-            case 'K':
-                points = 10;
-                break;
-            default:
-                points = Character.getNumericValue(value);
-        }
     }
 
-    public int getPoints(int handValue) {
-        if(isAce) {
-            return (handValue < 11) ? 11 : 1;
-        } else {
-            return points;
-        }
+    public Suit getSuit() {
+        return suit;
+    }
+
+    public void setSuit(Suit suit) {
+        this.suit = suit;
+    }
+
+    public Value getValue() {
+        return value;
+    }
+
+    public void setValue(Value value) {
+        this.value = value;
     }
 
     @Override
