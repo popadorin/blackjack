@@ -25,8 +25,11 @@ public class Deck {
         Collections.shuffle(deck);
     }
 
-
     public ArrayList<Card> getDeck() {
         return deck;
+    }
+
+    public Card draw() {
+        return deck.isEmpty() ? null : deck.remove(0);
     }
 }
