@@ -7,31 +7,19 @@ package com.faf.domain.model;
 public class Card {
 
 
-//    public static final char[] suits = {'C', 'D', 'S', 'H'};
-    public static final char[] values = {'A', '2', '3', '4', '5', '6', '7', '8', '9', 'X', 'J', 'Q', 'K'};
+//    public static final char[] values = {'A', '2', '3', '4', '5', '6', '7', '8', '9', 'X', 'J', 'Q', 'K'};
 
-    private final char value;
+    private final Value value;
     private final Suit suit;
     private final int points;
     private final boolean ace;
 
-    public Card(char value, Suit suit) {
+    public Card(Value value, Suit suit) {
         this.value = value;
         this.suit = suit;
-        ace = value == 'A';
-        switch (value) {
-            case 'A':
-                points = 11;
-                break;
-            case 'J':
-            case 'Q':
-            case 'K':
-            case 'X':
-                points = 10;
-                break;
-            default:
-                points = Character.getNumericValue(value);
-        }
+        ace = value == Value.Ace;
+        points = value.getValue();
+
     }
 
     public int getPoints(int handValue) {
