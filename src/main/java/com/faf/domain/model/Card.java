@@ -7,15 +7,15 @@ package com.faf.domain.model;
 public class Card {
 
 
-    public static final char[] suits = {'C', 'D', 'S', 'H'};
+//    public static final char[] suits = {'C', 'D', 'S', 'H'};
     public static final char[] values = {'A', '2', '3', '4', '5', '6', '7', '8', '9', 'X', 'J', 'Q', 'K'};
 
     private final char value;
-    private final char suit;
+    private final Suit suit;
     private final int points;
     private final boolean ace;
 
-    public Card(char value, char suit) {
+    public Card(char value, Suit suit) {
         this.value = value;
         this.suit = suit;
         ace = value == 'A';
