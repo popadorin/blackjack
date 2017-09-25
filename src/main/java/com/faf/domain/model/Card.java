@@ -38,7 +38,7 @@ public class Card {
 
     @Override
     public String toString() {
-        return "" + value + suit;
+        return "" + value.getValue() + suit;
     }
 
 
