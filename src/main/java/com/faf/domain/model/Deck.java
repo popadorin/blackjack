@@ -3,6 +3,7 @@ package com.faf.domain.model;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 import java.util.stream.Collectors;
 
 /**
@@ -10,26 +11,22 @@ import java.util.stream.Collectors;
  */
 public class Deck {
 
-    private ArrayList<Card> deck = new ArrayList<>();
+    private List<Card> cards = new ArrayList<>();
 
-
-    public void generateDeck() {
-        for(Suit suit: Suit.values()) {
-            for(Value value: Value.values()) {
-                deck.add(new Card(value, suit));
+    public Deck() {
+        for (char suit : Card.suits) {
+            for (char value : Card.values) {
+                cards.add(new Card(value, suit));
             }
         }
-    }
-
-    public void shuffleDeck(ArrayList deck) {
-        Collections.shuffle(deck);
-    }
-
-    public ArrayList<Card> getDeck() {
-        return deck;
+        Collections.shuffle(cards);
     }
 
     public Card draw() {
-        return deck.isEmpty() ? null : deck.remove(0);
+        if (cards.isEmpty()) {
+            return null;
+        } else {
+            return cards.remove(0);
+        }
     }
 }
